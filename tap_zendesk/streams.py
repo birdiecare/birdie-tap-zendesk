@@ -164,6 +164,7 @@ class Organizations(Stream):
 class OrganizationMemberships(Stream):
     name = "organization_memberships"
     replication_method = "FULL_TABLE"
+    key_properties = ["id"]
 
     def sync(self, state): # pylint: disable=unused-argument
         for organization_membership in self.client.organization_memberships():
